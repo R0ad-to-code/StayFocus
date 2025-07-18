@@ -1,0 +1,219 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FocusGuardApi</name>
+    </assembly>
+    <members>
+        <member name="M:FocusGuardApi.Controllers.AuthController.Register(FocusGuardApi.DTOs.RegisterUserDto)">
+            <summary>
+            Registers a new user
+            </summary>
+            <param name="registerDto">User registration information</param>
+            <returns>Authentication response with JWT token</returns>
+            <response code="200">Returns the authentication response</response>
+            <response code="400">If registration fails</response>
+        </member>
+        <member name="M:FocusGuardApi.Controllers.AuthController.Login(FocusGuardApi.DTOs.LoginDto)">
+            <summary>
+            Logs in an existing user
+            </summary>
+            <param name="loginDto">User login information</param>
+            <returns>Authentication response with JWT token</returns>
+            <response code="200">Returns the authentication response</response>
+            <response code="400">If login fails</response>
+        </member>
+        <member name="M:FocusGuardApi.Controllers.AuthController.RefreshToken(System.String)">
+            <summary>
+            Refreshes an expired JWT token
+            </summary>
+            <returns>New authentication response with fresh JWT token</returns>
+            <response code="200">Returns the new authentication response</response>
+            <response code="401">If refresh token is invalid</response>
+        </member>
+        <member name="M:FocusGuardApi.Controllers.AuthController.GetCurrentUser">
+            <summary>
+            Gets the current authenticated user information
+            </summary>
+            <returns>User information</returns>
+            <response code="200">Returns the user information</response>
+            <response code="401">If the user is not authenticated</response>
+        </member>
+        <member name="M:FocusGuardApi.Controllers.BlacklistController.GetBlacklistItems">
+            <summary>
+            Gets all blacklisted items for the authenticated user
+            </summary>
+            <returns>A list of blacklisted items</returns>
+            <response code="200">Returns the list of blacklisted items</response>
+            <response code="401">If the user is not authenticated</response>
+        </member>
+        <member name="M:FocusGuardApi.Controllers.BlacklistController.GetBlacklistItem(System.Int32)">
+            <summary>
+            Gets a specific blacklisted item by ID
+            </summary>
+            <param name="id">The blacklisted item ID</param>
+            <returns>The blacklisted item details</returns>
+            <response code="200">Returns the blacklisted item</response>
+            <response code="404">If the item is not found</response>
+            <response code="401">If the user is not authenticated</response>
+        </member>
+        <member name="M:FocusGuardApi.Controllers.BlacklistController.CreateBlacklistItem(FocusGuardApi.DTOs.BlacklistItemCreateDto)">
+            <summary>
+            Creates a new blacklisted item
+            </summary>
+            <param name="createDto">Blacklisted item creation data</param>
+            <returns>The created blacklisted item</returns>
+            <response code="201">Returns the newly created blacklisted item</response>
+            <response code="400">If the request data is invalid or the URL is already blacklisted</response>
+            <response code="401">If the user is not authenticated</response>
+        </member>
+        <member name="M:FocusGuardApi.Controllers.BlacklistController.UpdateBlacklistItem(System.Int32,FocusGuardApi.DTOs.BlacklistItemUpdateDto)">
+            <summary>
+            Updates an existing blacklisted item
+            </summary>
+            <param name="id">The blacklisted item ID</param>
+            <param name="updateDto">Blacklisted item update data</param>
+            <returns>The updated blacklisted item</returns>
+            <response code="200">Returns the updated blacklisted item</response>
+            <response code="404">If the item is not found</response>
+            <response code="400">If the request data is invalid</response>
+            <response code="401">If the user is not authenticated</response>
+        </member>
+        <member name="M:FocusGuardApi.Controllers.BlacklistController.DeleteBlacklistItem(System.Int32)">
+            <summary>
+            Deletes a blacklisted item
+            </summary>
+            <param name="id">The blacklisted item ID</param>
+            <returns>No content if successful</returns>
+            <response code="204">If the item was deleted successfully</response>
+            <response code="404">If the item is not found</response>
+            <response code="401">If the user is not authenticated</response>
+        </member>
+        <member name="M:FocusGuardApi.Controllers.BlacklistController.IsUrlBlacklisted(System.String)">
+            <summary>
+            Checks if a URL is blacklisted for the authenticated user
+            </summary>
+            <param name="url">The URL to check</param>
+            <returns>True if the URL is blacklisted, false otherwise</returns>
+            <response code="200">Returns whether the URL is blacklisted</response>
+            <response code="400">If the URL is invalid</response>
+            <response code="401">If the user is not authenticated</response>
+        </member>
+        <member name="M:FocusGuardApi.Controllers.MotivationController.GetRandomQuote">
+            <summary>
+            Gets a random motivational quote
+            </summary>
+            <returns>A motivational quote</returns>
+            <response code="200">Returns a motivational quote</response>
+        </member>
+        <member name="M:FocusGuardApi.Controllers.MotivationController.GetMotivationalMessage(System.Int32)">
+            <summary>
+            Gets a personalized motivational message based on session count
+            </summary>
+            <param name="sessionCount">The number of completed sessions</param>
+            <returns>A personalized motivational message</returns>
+            <response code="200">Returns a motivational message</response>
+            <response code="400">If the session count is negative</response>
+        </member>
+        <member name="M:FocusGuardApi.Controllers.SessionController.GetSessions">
+            <summary>
+            Gets all focus sessions for the authenticated user
+            </summary>
+            <returns>A list of focus sessions</returns>
+            <response code="200">Returns the list of sessions</response>
+            <response code="401">If the user is not authenticated</response>
+        </member>
+        <member name="M:FocusGuardApi.Controllers.SessionController.GetSession(System.Int32)">
+            <summary>
+            Gets a specific focus session by ID
+            </summary>
+            <param name="id">The session ID</param>
+            <returns>The focus session details</returns>
+            <response code="200">Returns the session</response>
+            <response code="404">If the session is not found</response>
+            <response code="401">If the user is not authenticated</response>
+        </member>
+        <member name="M:FocusGuardApi.Controllers.SessionController.CreateSession(FocusGuardApi.DTOs.SessionCreateDto)">
+            <summary>
+            Creates a new focus session
+            </summary>
+            <param name="createDto">Session creation data</param>
+            <returns>The created session</returns>
+            <response code="201">Returns the newly created session</response>
+            <response code="400">If the request data is invalid</response>
+            <response code="401">If the user is not authenticated</response>
+        </member>
+        <member name="M:FocusGuardApi.Controllers.SessionController.UpdateSession(System.Int32,FocusGuardApi.DTOs.SessionUpdateDto)">
+            <summary>
+            Updates an existing focus session
+            </summary>
+            <param name="id">The session ID</param>
+            <param name="updateDto">Session update data</param>
+            <returns>The updated session</returns>
+            <response code="200">Returns the updated session</response>
+            <response code="404">If the session is not found</response>
+            <response code="400">If the request data is invalid</response>
+            <response code="401">If the user is not authenticated</response>
+        </member>
+        <member name="M:FocusGuardApi.Controllers.SessionController.DeleteSession(System.Int32)">
+            <summary>
+            Deletes a focus session
+            </summary>
+            <param name="id">The session ID</param>
+            <returns>No content if successful</returns>
+            <response code="204">If the session was deleted successfully</response>
+            <response code="404">If the session is not found</response>
+            <response code="401">If the user is not authenticated</response>
+        </member>
+        <member name="M:FocusGuardApi.Controllers.SessionController.StartSession(System.Int32)">
+            <summary>
+            Starts or restarts a focus session
+            </summary>
+            <param name="id">The session ID</param>
+            <returns>The started session</returns>
+            <response code="200">Returns the started session</response>
+            <response code="404">If the session is not found</response>
+            <response code="401">If the user is not authenticated</response>
+        </member>
+        <member name="M:FocusGuardApi.Controllers.SessionController.EndSession(System.Int32,FocusGuardApi.DTOs.SessionEndDto)">
+            <summary>
+            Ends an active focus session
+            </summary>
+            <param name="id">The session ID</param>
+            <param name="endDto">Session end data</param>
+            <returns>The completed session</returns>
+            <response code="200">Returns the completed session</response>
+            <response code="404">If the session is not found</response>
+            <response code="401">If the user is not authenticated</response>
+        </member>
+        <member name="M:FocusGuardApi.Controllers.SessionController.GetSessionsInDateRange(System.DateTime,System.DateTime)">
+            <summary>
+            Gets all sessions within a specified date range
+            </summary>
+            <param name="startDate">The start date</param>
+            <param name="endDate">The end date</param>
+            <returns>A list of sessions within the date range</returns>
+            <response code="200">Returns the list of sessions</response>
+            <response code="400">If the date range is invalid</response>
+            <response code="401">If the user is not authenticated</response>
+        </member>
+        <member name="M:FocusGuardApi.Controllers.StatsController.GetStats">
+            <summary>
+            Gets productivity statistics for the authenticated user
+            </summary>
+            <returns>Productivity statistics</returns>
+            <response code="200">Returns the statistics</response>
+            <response code="401">If the user is not authenticated</response>
+        </member>
+        <member name="M:FocusGuardApi.Controllers.StatsController.GetStatsForDateRange(System.DateTime,System.DateTime)">
+            <summary>
+            Gets statistics for a specific date range
+            </summary>
+            <param name="startDate">The start date</param>
+            <param name="endDate">The end date</param>
+            <returns>Statistics for the date range</returns>
+            <response code="200">Returns the statistics</response>
+            <response code="400">If the date range is invalid</response>
+            <response code="401">If the user is not authenticated</response>
+        </member>
+    </members>
+</doc>

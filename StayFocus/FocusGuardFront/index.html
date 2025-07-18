@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FocusGuard - Boostez votre productivité</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>FocusGuard</h1>
+            <p class="tagline">Restez concentré, bloquez les distractions</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="auth-section" class="card">
+            <h2>Connexion / Inscription</h2>
+            <div id="login-form">
+                <h3>Connexion</h3>
+                <div class="form-group">
+                    <label for="login-username">Nom d'utilisateur</label>
+                    <input type="text" id="login-username" placeholder="Votre nom d'utilisateur">
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Mot de passe</label>
+                    <input type="password" id="login-password" placeholder="Votre mot de passe">
+                </div>
+                <button id="login-btn" class="btn primary">Se connecter</button>
+                <p class="toggle-form">Pas encore de compte? <a href="#" id="show-register">S'inscrire</a></p>
+            </div>
+            
+            <div id="register-form" style="display: none;">
+                <h3>Inscription</h3>
+                <div class="form-group">
+                    <label for="register-username">Nom d'utilisateur</label>
+                    <input type="text" id="register-username" placeholder="Choisissez un nom d'utilisateur">
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" placeholder="Votre adresse email">
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Mot de passe</label>
+                    <input type="password" id="register-password" placeholder="Choisissez un mot de passe">
+                </div>
+                <div class="form-group">
+                    <label for="register-confirm-password">Confirmer le mot de passe</label>
+                    <input type="password" id="register-confirm-password" placeholder="Confirmez votre mot de passe">
+                </div>
+                <button id="register-btn" class="btn primary">S'inscrire</button>
+                <p class="toggle-form">Déjà un compte? <a href="#" id="show-login">Se connecter</a></p>
+            </div>
+        </section>
+
+        <section id="app-section" style="display: none;">
+            <div class="card">
+                <h2>Tableau de bord</h2>
+                <div class="user-info">
+                    <p>Bienvenue, <span id="username-display">utilisateur</span>!</p>
+                    <button id="logout-btn" class="btn small">Se déconnecter</button>
+                </div>
+                
+                <div class="stats">
+                    <h3>Vos statistiques</h3>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span id="total-sessions">0</span>
+                            <p>Sessions</p>
+                        </div>
+                        <div class="stat-item">
+                            <span id="total-minutes">0</span>
+                            <p>Minutes</p>
+                        </div>
+                        <div class="stat-item">
+                            <span id="sessions-week">0</span>
+                            <p>Sessions cette semaine</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="motivation">
+                    <p id="motivation-quote">"Le succès n'est pas final, l'échec n'est pas fatal. C'est le courage de continuer qui compte."</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Sessions de concentration</h2>
+                <div class="session-creation">
+                    <h3>Créer une nouvelle session</h3>
+                    <div class="form-group">
+                        <label for="session-name">Nom de la session</label>
+                        <input type="text" id="session-name" placeholder="Ex: Projet FocusGuard">
+                    </div>
+                    <div class="form-group">
+                        <label for="session-description">Description (optionnel)</label>
+                        <textarea id="session-description" placeholder="Détails de la session"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="session-duration">Durée (minutes)</label>
+                        <input type="number" id="session-duration" value="25" min="1" max="120">
+                    </div>
+                    <button id="create-session-btn" class="btn primary">Créer la session</button>
+                </div>
+                
+                <div class="active-session" id="active-session" style="display: none;">
+                    <h3>Session en cours</h3>
+                    <div class="session-info">
+                        <h4 id="active-session-name">Nom de la session</h4>
+                        <p id="active-session-description">Description de la session</p>
+                        <div class="timer">
+                            <span id="timer-display">25:00</span>
+                        </div>
+                        <div class="session-controls">
+                            <button id="end-session-btn" class="btn danger">Terminer la session</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="session-history">
+                    <h3>Historique des sessions</h3>
+                    <div class="session-list" id="session-list">
+                        <!-- Les sessions seront ajoutées ici dynamiquement -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Liste noire</h2>
+                <div class="blacklist-creation">
+                    <h3>Ajouter un site à bloquer</h3>
+                    <div class="form-group">
+                        <label for="blacklist-url">URL du site</label>
+                        <input type="url" id="blacklist-url" placeholder="Ex: https://www.facebook.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="blacklist-name">Nom du site (optionnel)</label>
+                        <input type="text" id="blacklist-name" placeholder="Ex: Facebook">
+                    </div>
+                    <div class="form-group">
+                        <label for="blacklist-reason">Raison du blocage (optionnel)</label>
+                        <textarea id="blacklist-reason" placeholder="Pourquoi bloquer ce site?"></textarea>
+                    </div>
+                    <button id="add-blacklist-btn" class="btn primary">Ajouter à la liste noire</button>
+                </div>
+                
+                <div class="blacklist-items">
+                    <h3>Sites bloqués</h3>
+                    <div class="blacklist-list" id="blacklist-list">
+                        <!-- Les sites bloqués seront ajoutés ici dynamiquement -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 FocusGuard - Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <div class="toast" id="toast">
+        <p id="toast-message"></p>
+    </div>
+
+    <script src="api.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+@FocusGuardApi_HostAddress = http://localhost:5114
+
+GET {{FocusGuardApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
