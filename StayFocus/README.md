@@ -69,7 +69,7 @@ FocusGuard est une solution tout-en-un pour gérer vos sessions de concentration
 ### Cloner le repository
 
 ```bash
-git clone https://github.com/votre-username/FocusGuard.git
+git clone https://github.com/R0ad-to-code/StayFocus.git
 cd FocusGuard
 ```
 
@@ -77,12 +77,7 @@ cd FocusGuard
 
 ### Backend (API)
 
-1. Naviguer vers le dossier de l'API:
-
-```bash
-cd /Users/maxmengeringhausen/IPI/LinQ/FocusGuardApi
-```
-
+1. Naviguer vers le dossier de l'API (FocusGuardApi) :
 2. Restaurer les packages:
 
 ```bash
@@ -99,12 +94,7 @@ L'API sera disponible à l'adresse: http://localhost:5114
 
 ### Frontend
 
-1. Naviguer vers le dossier du frontend:
-
-```bash
-cd /Users/maxmengeringhausen/IPI/LinQ/FocusGuardFront
-```
-
+1. Naviguer vers le dossier du frontend (FocusGuardFront) :
 2. Lancer un serveur HTTP simple:
 
 ```bash
@@ -149,20 +139,10 @@ http://localhost:5114/swagger
 | GET     | /api/stats                    | Statistiques de productivité              |
 | GET     | /api/motivation/quote         | Citation aléatoire                        |
 
-## Captures d'écran
-
-### Page de connexion
-![Page de connexion](https://via.placeholder.com/800x450.png?text=Page+de+connexion)
-
-### Tableau de bord
-![Tableau de bord](https://via.placeholder.com/800x450.png?text=Tableau+de+bord)
-
-### Session de concentration
-![Session active](https://via.placeholder.com/800x450.png?text=Session+active)
-
 ## Développeurs
 
-- Max Mengeringhausen - Développeur principal
+- Max Mengeringhausen - Développeur 
+- Virgil Caujolle - Développeur
 
 ---
 
