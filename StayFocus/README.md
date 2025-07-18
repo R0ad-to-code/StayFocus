@@ -1,7 +1,5 @@
 # FocusGuard - Boostez votre productivité
 
-![FocusGuard Logo](https://img.shields.io/badge/FocusGuard-Productivité-4c5eaf)
-
 FocusGuard est une application complète qui vous aide à bloquer les distractions pendant vos sessions de travail, à suivre votre productivité et à maintenir votre concentration. Développée avec ASP.NET Core pour le backend et une interface utilisateur HTML/CSS/JS simple pour le frontend.
 
 ## Table des matières
@@ -18,7 +16,7 @@ FocusGuard est une application complète qui vous aide à bloquer les distractio
 
 ## Aperçu
 
-FocusGuard est une solution tout-en-un pour gérer vos sessions de concentration. L'application vous permet de créer des sessions de travail, de bloquer les sites web distrayants et de suivre vos statistiques de productivité. Le système repose sur une API RESTful sécurisée avec JWT et une interface utilisateur réactive.
+L'application vous permet de créer des sessions de travail, de bloquer les sites web distrayants et de suivre vos statistiques de productivité. Le système repose sur une API RESTful sécurisée avec JWT et une interface utilisateur réactive.
 
 ## Fonctionnalités
 
@@ -64,7 +62,6 @@ FocusGuard est une solution tout-en-un pour gérer vos sessions de concentration
 ### Prérequis
 
 - [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
-- Navigateur web moderne
 
 ### Cloner le repository
 
@@ -77,7 +74,7 @@ cd FocusGuard
 
 ### Backend (API)
 
-1. Naviguer vers le dossier de l'API (FocusGuardApi) :
+1. Aller dans le dossier de l'API (FocusGuardApi) :
 2. Restaurer les packages:
 
 ```bash
@@ -94,7 +91,7 @@ L'API sera disponible à l'adresse: http://localhost:5114
 
 ### Frontend
 
-1. Naviguer vers le dossier du frontend (FocusGuardFront) :
+1. Aller dans le dossier du frontend (FocusGuardFront) :
 2. Lancer un serveur HTTP simple:
 
 ```bash
@@ -142,7 +139,7 @@ http://localhost:5114/swagger
 ## Développeurs
 
 - Max Mengeringhausen - Développeur 
-- Virgil Caujolle - Développeur
+- Virgile Caujolle - Développeur
 
 ---
 
